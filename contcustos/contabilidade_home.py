@@ -76,6 +76,25 @@ def contc():
             st.write(df_despvariaveis)
             st.warning(f'O valor total das despesas variáveis é de: {total_despvariaveis}')
             st.warning(f'Isto corresponde a {(total_despvariaveis*100/total_receitas):.2f}% das receitas totais')
+            st.subheader('Despesas Financeiras')
+            tipo_despfinanceiras = st.multiselect(
+            'Selecione todas as despesas financeiras possíveis de forma realista!',
+            ['Financiamento de Veículos', 'Financiamento de Imóvel', 'Empréstimos'],['Empréstimos'])
+            despfinanceiras = pd.DataFrame()
+            nome_despfinanceiras = []
+            valor_despfinanceiras = []
+            for i in range(len(tipo_despfinanceiras)):
+                despfinanceira = tipo_despfinanceiras[i] 
+                valor_despfinanceira = st.number_input(f'{tipo_despfinanceiras[i]}: ',min_value=None, value=0.00)
+                nome_despfinanceiras = append(despfinanceira,nome_despfinanceiras)
+                valor_despfinanceiras = append(valor_despfinanceira, valor_despfinanceiras)
+            df_despfinanceiras = pd.DataFrame(list(zip(nome_despfinanceiras,valor_despfinanceiras)), columns = ['Tipo de Despesas Financeiras','Valor'])
+            total_despfinanceiras = df_despfinanceiras['Valor'].sum()
+            df_despfinanceiras['% sobre Receitas'] = (df_despfinanceiras['Valor']*100/total_receitas)
+            df_despfinanceiras = df_despfinanceiras.sort_values(by=['% sobre Receitas'], ascending=False)
+            st.write(df_despfinanceiras)
+            st.warning(f'O valor total das despesas financeiras é de: {total_despfinanceiras}')
+            st.warning(f'Isto corresponde a {(total_despfinanceiras*100/total_receitas):.2f}% das receitas totais')
 
         elif box_cont == 'Plano para Aposentadoria':
             st.write('Plano para Aposentadoria')   
