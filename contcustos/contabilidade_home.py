@@ -23,13 +23,18 @@ def contc():
             'Selecione todas as receitas possíveis de forma realista!',
             ['Salário', 'Pensão', 'Renda Extra', 'Mesada'],['Salário'])
             receitas = pd.DataFrame()
+            nome_receitas = []
+            valor_receitas = []
             for i in range(len(tipo_receitas)):
+                receita = tipo_receitas[i] 
                 valor = st.number_input(f'{tipo_receitas[i]}: ',min_value=0)
-                rec = pd.DataFrame()
-                rec['Receitas'] = f'{tipo_receitas[i]}'
-                rec['Valor'] = valor
-                receitas = append(rec,receitas)
-            st.write(rec)
+                nome_receitas = append(receita,nome_receitas)
+                valor_receitas = append(valor, valor_receitas)
+            df_receitas = pd.DataFrame(list(zip(nome_receitas,valor_receitas)), columns = ['Tipo de Receita','Valor'])
+            total_receitas = df_receitas['Valor'].sum()
+            df_receitas['%'] = df_receitas['Valor']*100/total_receitas
+            st.write(df_receitas)
+            st.warning(f'O valor total das receitas é de: {total_receitas}')
 
         elif box_cont == 'Plano para Aposentadoria':
             st.write('Plano para Aposentadoria')   

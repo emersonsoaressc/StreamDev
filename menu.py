@@ -19,7 +19,7 @@ def barraLateral():
     #######################################
     # SUB-TÓPICOS DE ECONOMETRIA 1
     #######################################
-    if select_depto == 'ECONOMETRIA 1':
-        st.write(econ())
+    #if select_depto == 'ECONOMETRIA 1':
+    #    st.write(econ())
     if select_depto == 'CONTABILIDADE DE CUSTOS':
         st.write(contc())    
