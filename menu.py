@@ -14,7 +14,7 @@ def barraLateral():
     #######################################
     # ESCOLHA DO DEPARTAMENTO
     #######################################
-    departamentos = ['ECONOMETRIA 1', 'CONTABILIDADE DE CUSTOS']
+    departamentos = ['CONTABILIDADE DE CUSTOS', 'ECONOMETRIA 1']
     select_depto = st.sidebar.selectbox('Selecione o departamento:',departamentos)
     #######################################
     # SUB-TÓPICOS DE ECONOMETRIA 1
