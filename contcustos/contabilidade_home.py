@@ -27,14 +27,31 @@ def contc():
             valor_receitas = []
             for i in range(len(tipo_receitas)):
                 receita = tipo_receitas[i] 
-                valor = st.number_input(f'{tipo_receitas[i]}: ',min_value=0)
+                valor_receita = st.number_input(f'{tipo_receitas[i]}: ',min_value=None, value=0.00)
                 nome_receitas = append(receita,nome_receitas)
-                valor_receitas = append(valor, valor_receitas)
+                valor_receitas = append(valor_receita, valor_receitas)
             df_receitas = pd.DataFrame(list(zip(nome_receitas,valor_receitas)), columns = ['Tipo de Receita','Valor'])
             total_receitas = df_receitas['Valor'].sum()
             df_receitas['%'] = df_receitas['Valor']*100/total_receitas
             st.write(df_receitas)
             st.warning(f'O valor total das receitas é de: {total_receitas}')
+            st.subheader('PASSO 2 - GASTOS')
+            tipo_gastos = st.multiselect(
+            'Selecione todas os gastos possíveis de forma realista!',
+            ['Aluguel', 'Pensão', 'Alimentação', 'Energia Elétrica','Lazer', 'Educação', 'Vestimentas', 'Internet', 'Petshop', 'Água', 'Condomínio', 'Combustível'],['Alimentação'])
+            gastos = pd.DataFrame()
+            nome_gastos = []
+            valor_gastos = []
+            for i in range(len(tipo_gastos)):
+                gasto = tipo_gastos[i] 
+                valor_gasto = st.number_input(f'{tipo_gastos[i]}: ',min_value=None, value=0.00)
+                nome_gastos = append(gasto,nome_gastos)
+                valor_gastos = append(valor_gasto, valor_gastos)
+            df_gastos = pd.DataFrame(list(zip(nome_gastos,valor_gastos)), columns = ['Tipo de Gasto','Valor'])
+            total_gastos = df_gastos['Valor'].sum()
+            df_gastos['%'] = df_gastos['Valor']*100/total_gastos
+            st.write(df_gastos)
+            st.warning(f'O valor total dos gastos é de: {total_gastos}')
 
         elif box_cont == 'Plano para Aposentadoria':
             st.write('Plano para Aposentadoria')   
