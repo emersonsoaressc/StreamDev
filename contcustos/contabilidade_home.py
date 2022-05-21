@@ -55,7 +55,8 @@ def contc():
             df_despfixas['% sobre Receitas'] = (df_despfixas['Valor']*100/total_receitas)
             df_despfixas = df_despfixas.sort_values(by=['% sobre Receitas'], ascending=False)
             st.write(df_despfixas)
-            st.warning(f'O valor total das despesas fixas é de: {total_despfixas} \n. Isto corresponde a {total_despfixas*100/total_receitas}% das receitas totais')
+            st.warning(f'O valor total das despesas fixas é de: {total_despfixas}')
+            st.warning(f'Isto corresponde a {(total_despfixas*100/total_receitas):.2f}% das receitas totais')
 
         elif box_cont == 'Plano para Aposentadoria':
             st.write('Plano para Aposentadoria')   
