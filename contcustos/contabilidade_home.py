@@ -38,9 +38,10 @@ def contc():
             st.subheader('PASSO 2 - GASTOS')
             st.write('Agora vamos dividir os gastos em DESPESAS FIXAS, DESPESAS VARIÁVEIS e INVESTIMENTOS')
             st.write('')
+            st.subheader('  Despesas Fixas')
             tipo_despfixas = st.multiselect(
-            'Selecione todas os gastos possíveis de forma realista!',
-            ['Aluguel', 'Pensão', 'Alimentação', 'Energia Elétrica','Lazer', 'Educação', 'Vestimentas', 'Internet', 'Petshop', 'Água', 'Condomínio', 'Combustível'],['Alimentação'])
+            'Selecione todas as despesas fixas possíveis de forma realista!',
+            ['Aluguel', 'Pensão', 'Alimentação', 'Energia Elétrica', 'Educação', 'Internet', 'Petshop', 'Água', 'Condomínio', 'Combustível'],['Alimentação'])
             despfixas = pd.DataFrame()
             nome_despfixas = []
             valor_despfixas = []
