@@ -32,4 +32,4 @@ def contc():
             st.write(rec)
 
         elif box_cont == 'Plano para Aposentadoria':
-            st.write('Plano para Aposentadoria')
+            st.write('Plano para Aposentadoria') 
