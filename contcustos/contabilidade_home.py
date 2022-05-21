@@ -119,8 +119,12 @@ def contc():
             st.warning(f'Isto corresponde a {(total_investimentos*100/total_receitas):.2f}% das receitas totais')
             df_dre = pd.DataFrame()
             df_dre['Demonstrativo Mensal'] = ['Receitas','Despesas Fixas', 'Despesas Variáveis', 'Despesas Financeiras', 'Investimentos']
-            df_dre['Valor'] = [total_receitas, total_despfixas, total_despvariaveis, despfinanceiras, total_investimentos]
+            df_dre['Valor'] = [total_receitas, total_despfixas, total_despvariaveis, total_despfinanceiras, total_investimentos]
+            df_dre['% sobre Receitas'] = (df_dre['Valor']*100/total_receitas)
+            saldo_total = total_receitas-total_despfixas-total_despvariaveis-total_despfinanceiras-total_investimentos
             st.write(df_dre)
+            st.warning(f'O saldo total do seu orçamento é de: {saldo_total}. Isto corresponde a {(saldo_total*100/total_receitas):.2f}% das receitas totais')
+
 
         elif box_cont == 'Plano para Aposentadoria':
             st.write('Plano para Aposentadoria')   
