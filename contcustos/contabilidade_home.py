@@ -95,6 +95,32 @@ def contc():
             st.write(df_despfinanceiras)
             st.warning(f'O valor total das despesas financeiras é de: {total_despfinanceiras}')
             st.warning(f'Isto corresponde a {(total_despfinanceiras*100/total_receitas):.2f}% das receitas totais')
+            st.subheader('PASSO 3 - INVESTIMENTOS')
+            st.write('Agora vamos incluir os aportes realizados para os investimentos')
+            st.write('')
+            st.subheader('Investimentos')
+            tipo_investimentos = st.multiselect(
+            'Selecione todas aportes mensais nos tipos de investimentos de forma realista!',
+            ['Poupança', 'TD Pré-fixado', 'TD Selic', 'TD Ipca +', 'CDB', 'LCI', 'LCA', 'Fundos Imobiliários', 'Ações Nacionais', 'Ações Americanas', 'Dólar', 'Ouro', 'Prata', 'Bitcoins', 'Outras Criptomoedas', 'Reits'],['Poupança'])
+            investimentos = pd.DataFrame()
+            nome_investimentos = []
+            valor_investimentos = []
+            for i in range(len(tipo_investimentos)):
+                investimento = tipo_investimentos[i] 
+                valor_investimento = st.number_input(f'{tipo_investimentos[i]}: ',min_value=None, value=0.00)
+                nome_investimentos = append(investimento,nome_investimentos)
+                valor_investimentos = append(valor_investimento, valor_investimentos)
+            df_investimentos = pd.DataFrame(list(zip(nome_investimentos,valor_investimentos)), columns = ['Tipo de Investimento','Valor'])
+            total_investimentos = df_investimentos['Valor'].sum()
+            df_investimentos['% sobre Receitas'] = (df_investimentos['Valor']*100/total_receitas)
+            df_investimentos = df_investimentos.sort_values(by=['% sobre Receitas'], ascending=False)
+            st.write(df_investimentos)
+            st.warning(f'O valor total das despesas fixas é de: {total_investimentos}')
+            st.warning(f'Isto corresponde a {(total_investimentos*100/total_receitas):.2f}% das receitas totais')
+            df_dre = pd.DataFrame()
+            df_dre['Demonstrativo Mensal'] = ['Receitas','Despesas Fixas', 'Despesas Variáveis', 'Despesas Financeiras', 'Investimentos']
+            df_dre['Valor'] = [total_receitas, total_despfixas, total_despvariaveis, despfinanceiras, total_investimentos]
+            st.write(df_dre)
 
         elif box_cont == 'Plano para Aposentadoria':
             st.write('Plano para Aposentadoria')   
