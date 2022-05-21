@@ -36,22 +36,24 @@ def contc():
             st.write(df_receitas)
             st.warning(f'O valor total das receitas é de: {total_receitas}')
             st.subheader('PASSO 2 - GASTOS')
-            tipo_gastos = st.multiselect(
+            st.write('Agora vamos dividir os gastos em DESPESAS FIXAS, DESPESAS VARIÁVEIS e INVESTIMENTOS')
+            st.write('')
+            tipo_despfixas = st.multiselect(
             'Selecione todas os gastos possíveis de forma realista!',
             ['Aluguel', 'Pensão', 'Alimentação', 'Energia Elétrica','Lazer', 'Educação', 'Vestimentas', 'Internet', 'Petshop', 'Água', 'Condomínio', 'Combustível'],['Alimentação'])
-            gastos = pd.DataFrame()
-            nome_gastos = []
-            valor_gastos = []
-            for i in range(len(tipo_gastos)):
-                gasto = tipo_gastos[i] 
-                valor_gasto = st.number_input(f'{tipo_gastos[i]}: ',min_value=None, value=0.00)
-                nome_gastos = append(gasto,nome_gastos)
-                valor_gastos = append(valor_gasto, valor_gastos)
-            df_gastos = pd.DataFrame(list(zip(nome_gastos,valor_gastos)), columns = ['Tipo de Gasto','Valor'])
-            total_gastos = df_gastos['Valor'].sum()
-            df_gastos['%'] = df_gastos['Valor']*100/total_gastos
-            st.write(df_gastos)
-            st.warning(f'O valor total dos gastos é de: {total_gastos}')
+            despfixas = pd.DataFrame()
+            nome_despfixas = []
+            valor_despfixas = []
+            for i in range(len(tipo_despfixas)):
+                despfixa = tipo_despfixas[i] 
+                valor_despfixa = st.number_input(f'{tipo_despfixas[i]}: ',min_value=None, value=0.00)
+                nome_despfixas = append(despfixa,nome_despfixas)
+                valor_despfixas = append(valor_despfixa, valor_despfixas)
+            df_despfixas = pd.DataFrame(list(zip(nome_despfixas,valor_despfixas)), columns = ['Tipo de Despesas Fixas','Valor'])
+            total_despfixas = df_despfixas['Valor'].sum()
+            df_despfixas['%'] = df_despfixas['Valor']*100/total_despfixas
+            st.write(df_despfixas)
+            st.warning(f'O valor total das despesas fixas é de: {total_despfixas}')
 
         elif box_cont == 'Plano para Aposentadoria':
             st.write('Plano para Aposentadoria')   
