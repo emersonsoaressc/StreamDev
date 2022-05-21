@@ -36,7 +36,7 @@ def contc():
             st.write(df_receitas)
             st.warning(f'O valor total das receitas é de: {total_receitas}')
             st.subheader('PASSO 2 - GASTOS')
-            st.write('Agora vamos dividir os gastos em DESPESAS FIXAS, DESPESAS VARIÁVEIS e INVESTIMENTOS')
+            st.write('Agora vamos dividir os gastos em DESPESAS FIXAS, DESPESAS VARIÁVEIS e DESPESAS FINANCEIRAS')
             st.write('')
             st.subheader('Despesas Fixas')
             tipo_despfixas = st.multiselect(
