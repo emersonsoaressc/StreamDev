@@ -41,7 +41,7 @@ def contc():
             st.subheader('Despesas Fixas')
             tipo_despfixas = st.multiselect(
             'Selecione todas as despesas fixas possíveis de forma realista!',
-            ['Aluguel', 'Pensão', 'Educação', 'Internet', 'Petshop', 'Combustível'],['Aluguel'])
+            ['Aluguel', 'Pensão', 'Educação', 'Internet', 'Petshop', 'Combustível', 'Academia', 'Inglês'],['Aluguel'])
             despfixas = pd.DataFrame()
             nome_despfixas = []
             valor_despfixas = []
@@ -60,7 +60,7 @@ def contc():
             st.subheader('Despesas Variáveis')
             tipo_despvariaveis = st.multiselect(
             'Selecione todas as despesas variáveis possíveis de forma realista!',
-            ['Alimentação', 'Energia Elétrica', 'Condomínio', 'Combustível'],['Alimentação'])
+            ['Alimentação', 'Energia Elétrica', 'Condomínio', 'Combustível', 'Lazer', 'Cabeleireiro', 'Transporte Coletivo', 'Recarga de Celular'],['Alimentação'])
             despvariaveis = pd.DataFrame()
             nome_despvariaveis = []
             valor_despvariaveis = []
