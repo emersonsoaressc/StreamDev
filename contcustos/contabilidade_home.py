@@ -52,7 +52,8 @@ def contc():
                 valor_despfixas = append(valor_despfixa, valor_despfixas)
             df_despfixas = pd.DataFrame(list(zip(nome_despfixas,valor_despfixas)), columns = ['Tipo de Despesas Fixas','Valor'])
             total_despfixas = df_despfixas['Valor'].sum()
-            df_despfixas['% sobre Receitas'] = df_despfixas['Valor']*100/total_receitas
+            df_despfixas['% sobre Receitas'] = (df_despfixas['Valor']*100/total_receitas)
+            df_despfixas = df_despfixas.sort_valeus(by=['% sobre Receitas'])
             st.write(df_despfixas)
             st.warning(f'O valor total das despesas fixas é de: {total_despfixas}')
 
