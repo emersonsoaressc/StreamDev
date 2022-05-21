@@ -6,7 +6,7 @@ import streamlit as st
 def contc():
     # Lista de temas e sub-temas
     lista_temas = ['Planejamento Financeiro Pessoal']
-    lista_box_cont = ['Conceito','Análise sobre Orçamento Pessoal', 'Plano para Aposentadoria']
+    lista_box_cont = ['Análise sobre Orçamento Pessoal','Conceito', 'Plano para Aposentadoria']
     # Função chamada
     tema = st.sidebar.selectbox('Selecione o tema:', lista_temas)
     if tema == 'Planejamento Financeiro Pessoal':
