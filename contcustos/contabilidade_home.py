@@ -38,10 +38,10 @@ def contc():
             st.subheader('PASSO 2 - GASTOS')
             st.write('Agora vamos dividir os gastos em DESPESAS FIXAS, DESPESAS VARIÁVEIS e INVESTIMENTOS')
             st.write('')
-            st.subheader('  Despesas Fixas')
+            st.subheader('Despesas Fixas')
             tipo_despfixas = st.multiselect(
             'Selecione todas as despesas fixas possíveis de forma realista!',
-            ['Aluguel', 'Pensão', 'Alimentação', 'Energia Elétrica', 'Educação', 'Internet', 'Petshop', 'Água', 'Condomínio', 'Combustível'],['Alimentação'])
+            ['Aluguel', 'Pensão', 'Educação', 'Internet', 'Petshop', 'Combustível'],['Aluguel'])
             despfixas = pd.DataFrame()
             nome_despfixas = []
             valor_despfixas = []
@@ -57,6 +57,25 @@ def contc():
             st.write(df_despfixas)
             st.warning(f'O valor total das despesas fixas é de: {total_despfixas}')
             st.warning(f'Isto corresponde a {(total_despfixas*100/total_receitas):.2f}% das receitas totais')
+            st.subheader('Despesas Variáveis')
+            tipo_despvariaveis = st.multiselect(
+            'Selecione todas as despesas variáveis possíveis de forma realista!',
+            ['Alimentação', 'Energia Elétrica', 'Condomínio', 'Combustível'],['Alimentação'])
+            despvariaveis = pd.DataFrame()
+            nome_despvariaveis = []
+            valor_despvariaveis = []
+            for i in range(len(tipo_despvariaveis)):
+                despvariavel = tipo_despvariaveis[i] 
+                valor_despvariavel = st.number_input(f'{tipo_despvariaveis[i]}: ',min_value=None, value=0.00)
+                nome_despvariaveis = append(despvariavel,nome_despvariaveis)
+                valor_despvariaveis = append(valor_despvariavel, valor_despvariaveis)
+            df_despvariaveis = pd.DataFrame(list(zip(nome_despvariaveis,valor_despvariaveis)), columns = ['Tipo de Despesas Variáveis','Valor'])
+            total_despvariaveis = df_despvariaveis['Valor'].sum()
+            df_despvariaveis['% sobre Receitas'] = (df_despvariaveis['Valor']*100/total_receitas)
+            df_despvariaveis = df_despvariaveis.sort_values(by=['% sobre Receitas'], ascending=False)
+            st.write(df_despvariaveis)
+            st.warning(f'O valor total das despesas variáveis é de: {total_despvariaveis}')
+            st.warning(f'Isto corresponde a {(total_despvariaveis*100/total_receitas):.2f}% das receitas totais')
 
         elif box_cont == 'Plano para Aposentadoria':
             st.write('Plano para Aposentadoria')   
