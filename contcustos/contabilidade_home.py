@@ -117,6 +117,8 @@ def contc():
             st.write(df_investimentos)
             st.warning(f'O valor total das despesas fixas é de: R$ {(total_investimentos):.2f}')
             st.warning(f'Isto corresponde a {(total_investimentos*100/total_receitas):.2f}% das receitas totais')
+            st.write('')
+            st.subheader('CONCLUSÃO')
             df_dre = pd.DataFrame()
             df_dre['Demonstrativo Mensal'] = ['Receitas','Despesas Fixas', 'Despesas Variáveis', 'Despesas Financeiras', 'Investimentos']
             df_dre['Valor'] = [total_receitas, total_despfixas, total_despvariaveis, total_despfinanceiras, total_investimentos]
