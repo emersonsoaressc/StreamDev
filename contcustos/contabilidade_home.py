@@ -34,7 +34,7 @@ def contc():
             total_receitas = df_receitas['Valor'].sum()
             df_receitas['%'] = df_receitas['Valor']*100/total_receitas
             st.write(df_receitas)
-            st.warning(f'O valor total das receitas é de: R$ {total_receitas}')
+            st.warning(f'O valor total das receitas é de: R$ {(total_receitas):.2f}')
             st.subheader('PASSO 2 - GASTOS')
             st.write('Agora vamos dividir os gastos em DESPESAS FIXAS, DESPESAS VARIÁVEIS e DESPESAS FINANCEIRAS')
             st.write('')
@@ -55,7 +55,7 @@ def contc():
             df_despfixas['% sobre Receitas'] = (df_despfixas['Valor']*100/total_receitas)
             df_despfixas = df_despfixas.sort_values(by=['% sobre Receitas'], ascending=False)
             st.write(df_despfixas)
-            st.warning(f'O valor total das despesas fixas é de: R$ {total_despfixas}')
+            st.warning(f'O valor total das despesas fixas é de: R$ {(total_despfixas):.2f}')
             st.warning(f'Isto corresponde a {(total_despfixas*100/total_receitas):.2f}% das receitas totais')
             st.subheader('Despesas Variáveis')
             tipo_despvariaveis = st.multiselect(
@@ -74,7 +74,7 @@ def contc():
             df_despvariaveis['% sobre Receitas'] = (df_despvariaveis['Valor']*100/total_receitas)
             df_despvariaveis = df_despvariaveis.sort_values(by=['% sobre Receitas'], ascending=False)
             st.write(df_despvariaveis)
-            st.warning(f'O valor total das despesas variáveis é de: R$ {total_despvariaveis}')
+            st.warning(f'O valor total das despesas variáveis é de: R$ {(total_despvariaveis):.2f}')
             st.warning(f'Isto corresponde a {(total_despvariaveis*100/total_receitas):.2f}% das receitas totais')
             st.subheader('Despesas Financeiras')
             tipo_despfinanceiras = st.multiselect(
@@ -93,7 +93,7 @@ def contc():
             df_despfinanceiras['% sobre Receitas'] = (df_despfinanceiras['Valor']*100/total_receitas)
             df_despfinanceiras = df_despfinanceiras.sort_values(by=['% sobre Receitas'], ascending=False)
             st.write(df_despfinanceiras)
-            st.warning(f'O valor total das despesas financeiras é de: R$ {total_despfinanceiras}')
+            st.warning(f'O valor total das despesas financeiras é de: R$ {(total_despfinanceiras):.2f}')
             st.warning(f'Isto corresponde a {(total_despfinanceiras*100/total_receitas):.2f}% das receitas totais')
             st.subheader('PASSO 3 - INVESTIMENTOS')
             st.write('Agora vamos incluir os aportes realizados para os investimentos')
@@ -115,7 +115,7 @@ def contc():
             df_investimentos['% sobre Receitas'] = (df_investimentos['Valor']*100/total_receitas)
             df_investimentos = df_investimentos.sort_values(by=['% sobre Receitas'], ascending=False)
             st.write(df_investimentos)
-            st.warning(f'O valor total das despesas fixas é de: R$ {total_investimentos}')
+            st.warning(f'O valor total das despesas fixas é de: R$ {(total_investimentos):.2f}')
             st.warning(f'Isto corresponde a {(total_investimentos*100/total_receitas):.2f}% das receitas totais')
             df_dre = pd.DataFrame()
             df_dre['Demonstrativo Mensal'] = ['Receitas','Despesas Fixas', 'Despesas Variáveis', 'Despesas Financeiras', 'Investimentos']
