@@ -124,7 +124,7 @@ def contc():
             saldo_total = total_receitas-total_despfixas-total_despvariaveis-total_despfinanceiras-total_investimentos
             st.write(df_dre)
             st.warning(f'A soma das despesas fixas, variáveis e financeiras correspondem a {((total_despfixas+total_despvariaveis+total_despfinanceiras)*100/total_receitas):.2f}% das receitas totais')
-            st.warning(f'O saldo total do seu orçamento é de: R$ {saldo_total}. Isto corresponde a {(saldo_total*100/total_receitas):.2f}% das receitas totais')
+            st.warning(f'O saldo total do seu orçamento é de: R$ {(saldo_total):.2f}. Isto corresponde a {(saldo_total*100/total_receitas):.2f}% das receitas totais')
 
 
         elif box_cont == 'Plano para Aposentadoria':
