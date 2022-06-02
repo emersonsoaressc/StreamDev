@@ -1,8 +1,6 @@
 import pandas as pd 
 from numpy import append
 import streamlit as st
-from reportlab.pdfgen import canvas
-from reportlab.lib.pagesizes import A4
 
 
 def contc():
