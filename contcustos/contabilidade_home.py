@@ -1,6 +1,8 @@
 import pandas as pd 
 from numpy import append
 import streamlit as st
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import A4
 
 
 def contc():
@@ -127,6 +129,13 @@ def contc():
             st.write(df_dre)
             st.warning(f'A soma das despesas fixas, variáveis e financeiras correspondem a {((total_despfixas+total_despvariaveis+total_despfinanceiras)*100/total_receitas):.2f}% das receitas totais')
             st.warning(f'O saldo total do seu orçamento é de: R$ {(saldo_total):.2f}. Isto corresponde a {(saldo_total*100/total_receitas):.2f}% das receitas totais')
+            
+            with open("contcustos/download.pdf", "rb") as file:
+                btn = st.download_button(
+                        label="Gerar Relatório em PDF",
+                        data='file',
+                        file_name="download.pdf"
+                    )
 
 
         elif box_cont == 'Plano para Aposentadoria':
