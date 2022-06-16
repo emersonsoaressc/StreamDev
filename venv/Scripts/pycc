@@ -1,0 +1,3 @@
+#!C:\Users\Samsung\OneDrive - UDESC Universidade do Estado de Santa Catarina\dev\StreamDev\StreamDev\venv\Scripts\python.exe
+from numba.pycc import main
+main()
