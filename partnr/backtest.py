@@ -8,7 +8,7 @@ sns.set()
 
 
 def layout_page():
-    st.selectbox('Escolha os ativos', ['BBAS3.SA','ABEV3.SA','VALE3.SA'])
+    st.multiselect('Escolha os ativos', ['BBAS3.SA','ABEV3.SA','VALE3.SA'])
     dados = backtest_stock()
     st.write('Hello World!') 
     st.write(dados)
