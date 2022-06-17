@@ -13,4 +13,4 @@ def layout_page():
     dados, retornos = backtest_stock(tickers=stocks)
     st.write(type(stocks)) 
     st.write(dados)
-    st.write(retornos)
+    st.write(retornos.plot())
