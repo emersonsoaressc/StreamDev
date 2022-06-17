@@ -11,9 +11,9 @@ class Strategy():
         pass
     pass
 
-def backtest_stock(ticker='BBAS3.SA',benchmark='^BVSP',strategy=''):
+def backtest_stock(tickers='BBAS3.SA',benchmark='^BVSP',strategy=''):
     dados = vbt.YFData.download(
-        ['BOVA11.SA','BBAS3.SA'], 
+        [benchmark,tickers], 
         missing_index='drop',
         start='2000-01-01', 
         interval='1d').get('Close')
