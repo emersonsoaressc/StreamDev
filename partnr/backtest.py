@@ -9,7 +9,7 @@ sns.set()
 
 def layout_page():
     stocks = st.multiselect('Escolha os ativos', ['BBAS3.SA','ABEV3.SA','VALE3.SA'])
-    stocks = stocks.append('^BVSP')
+    stocks.append('^BVSP')
     dados, retornos = backtest_stock(tickers=stocks)
     st.write(type(stocks)) 
     st.write(dados)
