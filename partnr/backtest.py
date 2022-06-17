@@ -7,7 +7,8 @@ sns.set()
 
 
 def layout_page():
-    st.write('Hello World!')    
+    st.write('Hello World!')   
+    st.write(backtest_stock()) 
 
 class Strategy():
     def estrategia1():
