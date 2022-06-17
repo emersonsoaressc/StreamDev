@@ -18,6 +18,6 @@ def backtest_stock(ticker='BBAS3.SA',benchmark='^BVSP',strategy=''):
         start='2000-01-01', 
         interval='1d').get('Close')
     dados = dados/dados.iloc[0]
-    return dados.plot()
+    return dados
 
   
