@@ -20,6 +20,4 @@ def backtest_stock(ticker='BBAS3.SA',benchmark='^BVSP',strategy=''):
     dados = dados/dados.iloc[0]
     return dados
 
-def layout_page():
-    dados = backtest_stock()
-    st.write('Hello World!')   
+  
