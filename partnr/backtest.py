@@ -10,3 +10,4 @@ sns.set()
 def layout_page():
     dados = backtest_stock()
     st.write('Hello World!') 
+    st.write(dados.plot().show())
