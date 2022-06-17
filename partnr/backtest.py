@@ -23,3 +23,4 @@ def backtest_stock(ticker,benchmark,strategy):
     dados = dados/dados.iloc[0]
     return dados
 
+layout_page()
