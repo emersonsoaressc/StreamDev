@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 from econometria1.econometria_home import econ
 from contcustos.contabilidade_home import contc
+from partnr.backtest import layout_page
 
 
 #######################################
@@ -19,6 +20,8 @@ def barraLateral():
     #######################################
     # SUB-TÓPICOS DE ECONOMETRIA 1
     #######################################
+    if select_depto == 'PARTNR':
+        st.write(layout_page())
     if select_depto == 'ECONOMETRIA 1':
         st.write(econ())
     if select_depto == 'CONTABILIDADE DE CUSTOS':
