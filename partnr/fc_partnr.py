@@ -21,5 +21,6 @@ def backtest_stock(ticker='BBAS3.SA',benchmark='^BVSP',strategy=''):
     return dados
 
 def layout_page():
+    dados = backtest_stock()
     st.write('Hello World!')   
-    st.write(backtest_stock()) 
+    st.write(dados.plot()) 
