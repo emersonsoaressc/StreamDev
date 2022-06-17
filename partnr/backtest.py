@@ -8,6 +8,6 @@ sns.set()
 
 
 def layout_page():
-    dados = backtest_stock()
+    dados = backtest_stock().plot()
     st.write('Hello World!') 
-    st.write(dados.plot())
+    st.write(dados)
