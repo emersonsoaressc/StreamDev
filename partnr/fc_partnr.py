@@ -19,9 +19,10 @@ def backtest_stock(tickers='BBAS3.SA',benchmark='^BVSP',strategy=''):
             missing_index='drop',
             start='2000-01-01', 
             interval='1d').get('Close')
-        dados = dados/dados.iloc[0]
+        retornos = dados/dados.iloc[0]
     except:
         dados = ''
-    return dados
+        retornos = ''
+    return dados, retornos
 
   
